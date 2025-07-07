@@ -1,210 +1,130 @@
-# كيفية تشغيل أداة Sniper-Saudi
-بعد تحليل أداة Sniper-Saudi، يمكنني تقديم الإرشادات التالية لتشغيلها:
+<link rel="stylesheet" href="style.css">
 
-## المتطلبات الأساسية
-قبل تشغيل الأداة، يجب تثبيت المتطلبات التالية:
+<div class="logo-container">
+  <img src="logo.svg" alt="Sniper-Saudi Logo" width="400">
+</div>
 
-1. Python 3.6+ - الأداة تعمل على Python الإصدار 3.6 أو أحدث
-2. مكتبات Python - يمكن تثبيتها باستخدام الأمر:
-   ```
-   pip install -r requirements.txt
-   ```
-3. nmap - أداة أساسية للفحص الأمني، يجب تثبيتها من الموقع الرسمي: https://nmap.org/download.html
-4. أدوات إضافية (اختيارية) - مثل masscan وnikto وgobuster وOpenVAS وBurpsuite وArachni
-## طريقة التثبيت
-1. قم بتشغيل ملف install.bat الموجود في المجلد الرئيسي للأداة (لنظام Windows)
-2. أو قم بتشغيل ملف install.sh (لنظام Linux)
-## طريقة التشغيل
-يمكن تشغيل الأداة بعدة أوضاع مختلفة حسب نوع الفحص المطلوب:
+<h1 class="main-title">Sniper-Saudi</h1>
 
-### الوضع العادي (Normal Mode)
-```
-python sniper.py [target]
-```
-أو باستخدام ملف الدفعة:
-
-```
-sniper.bat [target]
-```
-### وضع التخفي (Stealth Mode)
-```
-python sniper.py [target] stealth
-```
-### وضع FLYOVER
-```
-python sniper.py [target] flyover
-```
-### وضع AIRSTRIKE (لفحص أهداف متعددة)
-```
-python sniper.py /path/to/targets.txt strike
-```
-### وضع NUKE (لفحص شامل لأهداف متعددة)
-```
-python sniper.py /path/to/targets.txt nuke
-```
-### وضع اكتشف (Discover Mode)
-```
-python sniper.py [CIDR] discover
-```
-### وضع المنفذ (Port Mode)
-```
-python sniper.py [target] port [port]
-```
-### وضع FULLPORTONLY
-```
-python sniper.py [target] fullportonly
-```
-### وضع MASSPORTSCAN
-```
-python sniper.py -f /path/to/targets.txt massportscan
-```
-### وضع ويب (Web Mode)
-```
-python sniper.py [target] web
-```
-### وضع MASSWEB
-```
-python sniper.py -f /path/to/targets.txt massweb
-```
-### وضع WEBPORTHTTP
-```
-python sniper.py [target] [port] webporthttp
-```
-### وضع WEBPORTHTTPS
-```
-python sniper.py [target] [port] webporthttps
-```
-### وضع WEBSCAN
-```
-python sniper.py [target] webscan
-```
-### وضع MASSWEBSCAN
-```
-python sniper.py -f /path/to/targets.txt masswebscan
-```
-### وضع VULNSCAN
-```
-python sniper.py [target] vulnscan
-```
-### وضع MASSVULNSCAN
-```
-python sniper.py -f /path/to/targets.txt massvulnscan
-```
-## ملاحظات هامة
-- تأكد من تثبيت nmap بشكل صحيح وإضافته إلى متغير PATH في النظام
-- النتائج يتم حفظها في مجلد results داخل المجلد الرئيسي للأداة
-- يتم إنشاء مجلد جديد لكل عملية فحص باسم الهدف والتاريخ والوقت
-- سجلات التشغيل يتم حفظها في ملف sniper.log
-## إخلاء المسؤولية
-هذه الأداة مخصصة للاستخدام في اختبار الاختراق القانوني والأخلاقي فقط. استخدام هذه الأداة ضد أنظمة غير مصرح بها قد يكون غير قانوني. المستخدم مسؤول بالكامل عن أي سوء استخدام أو ضرر ناتج عن استخدام هذه الأداة
-
-
-# Sniper-Saudi
-
-أداة فحص أمني متعددة الوظائف مصممة لاختبار الاختراق واكتشاف الثغرات الأمنية.
+<div class="tool-description">
+  <p>أداة فحص أمني متعددة الوظائف مصممة لاختبار الاختراق واكتشاف الثغرات الأمنية. توفر مجموعة شاملة من الأدوات والتقنيات لتقييم أمان الأنظمة والشبكات وتطبيقات الويب.</p>
+</div>
 
 ## الميزات
 
-- **عادي**: فحص أساسي للأهداف والمنافذ المفتوحة باستخدام فحوصات نشطة وسلبية للحصول على الأداء الأمثل.
-- **التخفي**: إحصاء الأهداف الفردية بسرعة باستخدام عمليات مسح غير تدخلية لتجنب حظر WAF/IPS.
-- **FLYOVER**: عمليات مسح سريعة متعددة الخيوط وعالية المستوى لأهداف متعددة.
-- **AIRSTRIKE**: يُحصي المنافذ/الخدمات المفتوحة بسرعة على عدة مضيفين، ويُجري بصمة أساسية.
-- **NUKE**: تدقيق كامل لمضيفين متعددين محددين في ملف نصي.
-- **اكتشف**: يُحلل جميع المضيفين على شبكة فرعية/CIDR ويبدأ فحصًا شاملًا لكل مضيف.
-- **المنفذ**: يفحص منفذًا محددًا بحثًا عن الثغرات الأمنية.
-- **FULLPORTONLY**: فحص تفصيلي كامل للمنافذ مع حفظ النتائج في XML.
-- **MASSPORTSCAN**: يقوم بتشغيل فحص "fullportonly" على أهداف متعددة.
-- **ويب**: عمليات مسح تلقائية كاملة لتطبيقات الويب (المنفذ 80/tcp و443/tcp).
-- **MASSWEB**: يقوم بتشغيل عمليات مسح وضع "الويب" على أهداف متعددة.
-- **WEBPORTHTTP**: فحص تطبيق الويب HTTP الكامل ضد مضيف ومنفذ محددين.
-- **WEBPORTHTTPS**: فحص تطبيق الويب HTTPS الكامل ضد مضيف ومنفذ محددين.
-- **WEBSCAN**: فحص كامل لتطبيقات الويب HTTP و HTTPS عبر Burpsuite و Arachni.
-- **MASSWEBSCAN**: يقوم بتشغيل عمليات مسح وضع "webscan" لأهداف متعددة.
-- **VULNSCAN**: فحص الثغرات الأمنية في OpenVAS.
-- **MASSVULNSCAN**: يقوم بتشغيل عمليات مسح وضع "vulnscan" على أهداف متعددة.
+<ul class="feature-list">
+  <li><strong>عادي</strong>: فحص أساسي للأهداف والمنافذ المفتوحة باستخدام فحوصات نشطة وسلبية للحصول على الأداء الأمثل.</li>
+  <li><strong>التخفي</strong>: إحصاء الأهداف الفردية بسرعة باستخدام عمليات مسح غير تدخلية لتجنب حظر WAF/IPS.</li>
+  <li><strong>FLYOVER</strong>: عمليات مسح سريعة متعددة الخيوط وعالية المستوى لأهداف متعددة.</li>
+  <li><strong>AIRSTRIKE</strong>: يُحصي المنافذ/الخدمات المفتوحة بسرعة على عدة مضيفين، ويُجري بصمة أساسية.</li>
+  <li><strong>NUKE</strong>: تدقيق كامل لمضيفين متعددين محددين في ملف نصي.</li>
+  <li><strong>اكتشف</strong>: يُحلل جميع المضيفين على شبكة فرعية/CIDR ويبدأ فحصًا شاملًا لكل مضيف.</li>
+  <li><strong>المنفذ</strong>: يفحص منفذًا محددًا بحثًا عن الثغرات الأمنية.</li>
+  <li><strong>FULLPORTONLY</strong>: فحص تفصيلي كامل للمنافذ مع حفظ النتائج في XML.</li>
+  <li><strong>MASSPORTSCAN</strong>: يقوم بتشغيل فحص "fullportonly" على أهداف متعددة.</li>
+  <li><strong>ويب</strong>: عمليات مسح تلقائية كاملة لتطبيقات الويب (المنفذ 80/tcp و443/tcp).</li>
+  <li><strong>MASSWEB</strong>: يقوم بتشغيل عمليات مسح وضع "الويب" على أهداف متعددة.</li>
+  <li><strong>WEBPORTHTTP</strong>: فحص تطبيق الويب HTTP الكامل ضد مضيف ومنفذ محددين.</li>
+  <li><strong>WEBPORTHTTPS</strong>: فحص تطبيق الويب HTTPS الكامل ضد مضيف ومنفذ محددين.</li>
+  <li><strong>WEBSCAN</strong>: فحص كامل لتطبيقات الويب HTTP و HTTPS عبر Burpsuite و Arachni.</li>
+  <li><strong>MASSWEBSCAN</strong>: يقوم بتشغيل عمليات مسح وضع "webscan" لأهداف متعددة.</li>
+  <li><strong>VULNSCAN</strong>: فحص الثغرات الأمنية في OpenVAS.</li>
+  <li><strong>MASSVULNSCAN</strong>: يقوم بتشغيل عمليات مسح وضع "vulnscan" على أهداف متعددة.</li>
+</ul>
 
 ## طريقة الاستخدام
 
-```
-# الوضع العادي
-./sniper.py [target]
+<div class="code-block">
+<pre>
+python sniper.py -t &lt;TARGET&gt; -m &lt;MODE&gt; [OPTIONS]
+</pre>
+</div>
 
-# وضع التخفي
-./sniper.py [target] stealth
+### الأوضاع المتاحة:
 
-# وضع FLYOVER
-./sniper.py [target] flyover
-
-# وضع AIRSTRIKE
-./sniper.py /path/to/targets.txt strike
-
-# وضع NUKE
-./sniper.py /path/to/targets.txt nuke
-
-# وضع اكتشف
-./sniper.py [CIDR] discover
-
-# وضع المنفذ
-./sniper.py [target] port [port]
-
-# وضع FULLPORTONLY
-./sniper.py [target] fullportonly
-
-# وضع MASSPORTSCAN
-./sniper.py -f /path/to/targets.txt massportscan
-
-# وضع ويب
-./sniper.py [target] web
-
-# وضع MASSWEB
-./sniper.py -f /path/to/targets.txt massweb
-
-# وضع WEBPORTHTTP
-./sniper.py [target] [port] webporthttp
-
-# وضع WEBPORTHTTPS
-./sniper.py [target] [port] webporthttps
-
-# وضع WEBSCAN
-./sniper.py [target] webscan
-
-# وضع MASSWEBSCAN
-./sniper.py -f /path/to/targets.txt masswebscan
-
-# وضع VULNSCAN
-./sniper.py [target] vulnscan
-
-# وضع MASSVULNSCAN
-./sniper.py -f /path/to/targets.txt massvulnscan
-```
+<ul class="mode-list">
+  <li><strong>normal</strong>: فحص أساسي للأهداف والمنافذ المفتوحة</li>
+  <li><strong>stealth</strong>: فحص غير تدخلي للأهداف الفردية</li>
+  <li><strong>flyover</strong>: فحص سريع متعدد الخيوط لأهداف متعددة</li>
+  <li><strong>airstrike</strong>: فحص سريع للمنافذ/الخدمات المفتوحة</li>
+  <li><strong>nuke</strong>: تدقيق كامل لمضيفين متعددين</li>
+  <li><strong>discover</strong>: تحليل المضيفين على شبكة فرعية/CIDR</li>
+  <li><strong>port</strong>: فحص منفذ محدد</li>
+  <li><strong>fullportonly</strong>: فحص تفصيلي كامل للمنافذ</li>
+  <li><strong>massportscan</strong>: فحص "fullportonly" لأهداف متعددة</li>
+  <li><strong>web</strong>: فحص تطبيقات الويب</li>
+  <li><strong>massweb</strong>: فحص وضع "الويب" لأهداف متعددة</li>
+  <li><strong>webporthttp</strong>: فحص تطبيق الويب HTTP</li>
+  <li><strong>webporthttps</strong>: فحص تطبيق الويب HTTPS</li>
+  <li><strong>webscan</strong>: فحص كامل لتطبيقات الويب HTTP و HTTPS</li>
+  <li><strong>masswebscan</strong>: فحص وضع "webscan" لأهداف متعددة</li>
+  <li><strong>vulnscan</strong>: فحص الثغرات الأمنية</li>
+  <li><strong>massvulnscan</strong>: فحص وضع "vulnscan" لأهداف متعددة</li>
+</ul>
 
 ## المتطلبات
 
-- Python 3.6+
-- nmap
-- masscan
-- nikto
-- gobuster
-- OpenVAS (اختياري للفحص الشامل للثغرات)
-- Burpsuite (اختياري لفحص تطبيقات الويب)
-- Arachni (اختياري لفحص تطبيقات الويب)
+<div class="requirements-section">
+  <ul class="requirements-list">
+    <li><i class="req-icon python"></i><strong>Python 3.6+</strong></li>
+    <li><i class="req-icon nmap"></i><strong>Nmap</strong></li>
+    <li><i class="req-icon metasploit"></i><strong>Metasploit Framework</strong> (اختياري)</li>
+    <li><i class="req-icon openvas"></i><strong>OpenVAS</strong> (اختياري للفحص الشامل للثغرات)</li>
+    <li><i class="req-icon nikto"></i><strong>Nikto</strong></li>
+    <li><i class="req-icon dirsearch"></i><strong>Dirsearch</strong></li>
+    <li><i class="req-icon gobuster"></i><strong>Gobuster</strong></li>
+    <li><i class="req-icon masscan"></i><strong>Masscan</strong></li>
+    <li><i class="req-icon shodan"></i><strong>Shodan API</strong> (اختياري)</li>
+    <li><i class="req-icon burpsuite"></i><strong>Burpsuite</strong> (اختياري لفحص تطبيقات الويب)</li>
+    <li><i class="req-icon arachni"></i><strong>Arachni</strong> (اختياري لفحص تطبيقات الويب)</li>
+  </ul>
+</div>
 
 ## التثبيت
 
-```
-# تثبيت المتطلبات
-pip install -r requirements.txt
+<div class="installation-section">
+  <div class="installation-windows">
+    <h3><i class="os-icon windows"></i> ويندوز</h3>
+    <ol class="install-steps">
+      <li>قم بتثبيت Python 3.6+ من <a href="https://www.python.org/downloads/" class="download-link">الموقع الرسمي</a>.</li>
+      <li>قم بتثبيت Nmap من <a href="https://nmap.org/download.html" class="download-link">الموقع الرسمي</a>.</li>
+      <li>قم بتشغيل <code>install.bat</code> لتثبيت جميع التبعيات المطلوبة.</li>
+    </ol>
+  </div>
 
-# تثبيت الأدوات الإضافية (على نظام Ubuntu/Debian)
-sudo apt update
-sudo apt install nmap masscan nikto
-```
+  <div class="installation-linux">
+    <h3><i class="os-icon linux"></i> لينكس</h3>
+    <div class="code-block">
+      <pre>
+git clone https://github.com/yourusername/sniper-saudi.git
+cd sniper-saudi
+chmod +x install.sh
+./install.sh</pre>
+    </div>
+  </div>
+</div>
 
 ## إخلاء المسؤولية
 
-هذه الأداة مخصصة للاستخدام في اختبار الاختراق القانوني والأخلاقي فقط. استخدام هذه الأداة ضد أنظمة غير مصرح بها قد يكون غير قانوني. المستخدم مسؤول بالكامل عن أي سوء استخدام أو ضرر ناتج عن استخدام هذه الأداة.
+<div class="disclaimer">
+  <div class="disclaimer-icon">⚠️</div>
+  <div class="disclaimer-text">
+    <p>هذه الأداة مخصصة للاستخدام في اختبار الاختراق الأخلاقي وتقييم الأمان فقط. المؤلف غير مسؤول عن أي إساءة استخدام أو ضرر ناتج عن هذه الأداة. استخدم هذه الأداة على مسؤوليتك الخاصة.</p>
+  </div>
+</div>
 
 ## المطور
 
-- **المبرمج**: Sayer Linux
-- **البريد الإلكتروني**: Sayerlinux@gmail.com
+<div class="developer-section">
+  <div class="developer-card">
+    <div class="developer-avatar"></div>
+    <div class="developer-info">
+      <h3>فريق Sniper-Saudi</h3>
+      <p>تم تطوير هذه الأداة بواسطة <a href="https://github.com/yourusername" class="developer-link">فريق Sniper-Saudi</a>.</p>
+      <div class="social-links">
+        <a href="https://github.com/yourusername" class="social-link github"><i class="social-icon github"></i></a>
+        <a href="https://twitter.com/yourusername" class="social-link twitter"><i class="social-icon twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
