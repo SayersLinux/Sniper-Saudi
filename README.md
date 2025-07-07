@@ -29,21 +29,50 @@ sniper.bat [target]
 ```
 python sniper.py [target] stealth
 ```
-### وضع FLYOVER
+
+### وضع FLYOVER                                                      
+python sniper.py [target] flyover
+
 ### وضع AIRSTRIKE (لفحص أهداف متعددة)
+python sniper.py /path/to/targets.txt strike
 ### وضع NUKE (لفحص شامل لأهداف متعددة)
+python sniper.py /path/to/targets.txt nuke
 ### وضع اكتشف (Discover Mode)
+python sniper.py [CIDR] discover
+
 ### وضع المنفذ (Port Mode)
-### وضع FULLPORTONLY
+
+python sniper.py [target] port [port]
+
+### وضع flyover    
+python sniper.py [target] flyover
+
 ### وضع MASSPORTSCAN
+python sniper.py -f /path/to/targets.txt massportscan
+
 ### وضع ويب (Web Mode)
+python sniper.py [target] web
+
+
 ### وضع MASSWEB
+python sniper.py -f /path/to/targets.txt massweb
+
 ### وضع WEBPORTHTTP
+python sniper.py [target] [port] webporthttp
+
+
 ### وضع WEBPORTHTTPS
+python sniper.py [target] [port] webporthttps
+
 ### وضع WEBSCAN
-### وضع MASSWEBSCAN
+python sniper.py [target] webscan
+
+
 ### وضع VULNSCAN
+
+python sniper.py [target] vulnscan
 ### وضع MASSVULNSCAN
+python sniper.py -f /path/to/targets.txt massvulnscan
 ## ملاحظات هامة
 - تأكد من تثبيت nmap بشكل صحيح وإضافته إلى متغير PATH في النظام
 - النتائج يتم حفظها في مجلد results داخل المجلد الرئيسي للأداة
