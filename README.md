@@ -1,3 +1,104 @@
+# كيفية تشغيل أداة Sniper-Saudi
+بعد تحليل أداة Sniper-Saudi، يمكنني تقديم الإرشادات التالية لتشغيلها:
+
+## المتطلبات الأساسية
+قبل تشغيل الأداة، يجب تثبيت المتطلبات التالية:
+
+1. Python 3.6+ - الأداة تعمل على Python الإصدار 3.6 أو أحدث
+2. مكتبات Python - يمكن تثبيتها باستخدام الأمر:
+   ```
+   pip install -r requirements.txt
+   ```
+3. nmap - أداة أساسية للفحص الأمني، يجب تثبيتها من الموقع الرسمي: https://nmap.org/download.html
+4. أدوات إضافية (اختيارية) - مثل masscan وnikto وgobuster وOpenVAS وBurpsuite وArachni
+## طريقة التثبيت
+1. قم بتشغيل ملف install.bat الموجود في المجلد الرئيسي للأداة (لنظام Windows)
+2. أو قم بتشغيل ملف install.sh (لنظام Linux)
+## طريقة التشغيل
+يمكن تشغيل الأداة بعدة أوضاع مختلفة حسب نوع الفحص المطلوب:
+
+### الوضع العادي (Normal Mode)
+```
+python sniper.py [target]
+```
+أو باستخدام ملف الدفعة:
+
+```
+sniper.bat [target]
+```
+### وضع التخفي (Stealth Mode)
+```
+python sniper.py [target] stealth
+```
+### وضع FLYOVER
+```
+python sniper.py [target] flyover
+```
+### وضع AIRSTRIKE (لفحص أهداف متعددة)
+```
+python sniper.py /path/to/targets.txt strike
+```
+### وضع NUKE (لفحص شامل لأهداف متعددة)
+```
+python sniper.py /path/to/targets.txt nuke
+```
+### وضع اكتشف (Discover Mode)
+```
+python sniper.py [CIDR] discover
+```
+### وضع المنفذ (Port Mode)
+```
+python sniper.py [target] port [port]
+```
+### وضع FULLPORTONLY
+```
+python sniper.py [target] fullportonly
+```
+### وضع MASSPORTSCAN
+```
+python sniper.py -f /path/to/targets.txt massportscan
+```
+### وضع ويب (Web Mode)
+```
+python sniper.py [target] web
+```
+### وضع MASSWEB
+```
+python sniper.py -f /path/to/targets.txt massweb
+```
+### وضع WEBPORTHTTP
+```
+python sniper.py [target] [port] webporthttp
+```
+### وضع WEBPORTHTTPS
+```
+python sniper.py [target] [port] webporthttps
+```
+### وضع WEBSCAN
+```
+python sniper.py [target] webscan
+```
+### وضع MASSWEBSCAN
+```
+python sniper.py -f /path/to/targets.txt masswebscan
+```
+### وضع VULNSCAN
+```
+python sniper.py [target] vulnscan
+```
+### وضع MASSVULNSCAN
+```
+python sniper.py -f /path/to/targets.txt massvulnscan
+```
+## ملاحظات هامة
+- تأكد من تثبيت nmap بشكل صحيح وإضافته إلى متغير PATH في النظام
+- النتائج يتم حفظها في مجلد results داخل المجلد الرئيسي للأداة
+- يتم إنشاء مجلد جديد لكل عملية فحص باسم الهدف والتاريخ والوقت
+- سجلات التشغيل يتم حفظها في ملف sniper.log
+## إخلاء المسؤولية
+هذه الأداة مخصصة للاستخدام في اختبار الاختراق القانوني والأخلاقي فقط. استخدام هذه الأداة ضد أنظمة غير مصرح بها قد يكون غير قانوني. المستخدم مسؤول بالكامل عن أي سوء استخدام أو ضرر ناتج عن استخدام هذه الأداة
+
+
 # Sniper-Saudi
 
 أداة فحص أمني متعددة الوظائف مصممة لاختبار الاختراق واكتشاف الثغرات الأمنية.
